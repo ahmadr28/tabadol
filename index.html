@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tabadol | Your next look. Yours to borrow or keep.</title>
+<meta name="description" content="Rent, borrow, buy and lend designer handbags, jewelry, clothing and accessories.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1A1714;--ivory:#F7F5F2;--red:#9B1C31;--wine:#3B0D15;--wine2:#561523;--blush:#F5E6E3;--muted:#5E544E;--line:#E2DDD6;--serif:'Cormorant Garamond',Georgia,serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.5}
+img{display:block;max-width:100%}
+a{color:var(--ink)}a:hover{color:var(--red)}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.eyebrow{margin:0 0 8px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.serif{font-family:var(--serif);font-weight:500}
+h1,h2{font-family:var(--serif);font-weight:500;margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;border-radius:999px;font-weight:600;font-size:14px;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit}
+.btn-red{background:var(--red);color:#fff}.btn-red:hover{color:#fff;background:#7f1628}
+.btn-white{background:#fff;color:var(--ink)}
+.btn-ghost-w{border-color:#fff;color:#fff}.btn-ghost-w:hover{color:#fff;background:rgba(255,255,255,.12)}
+.btn-ghost{border-color:var(--ink);color:var(--ink)}
+.btn-dark{background:var(--ink);color:#fff}.btn-dark:hover{color:#fff}
+
+.announce{background:var(--red);color:#fff;text-align:center;font-size:12px;letter-spacing:.08em;padding:10px 16px;text-transform:uppercase}
+header{border-bottom:1px solid var(--line);background:var(--ivory);position:sticky;top:0;z-index:10}
+.head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;max-width:1280px;margin:0 auto}
+.logo{display:flex;text-decoration:none}
+nav.main{display:flex;gap:28px;font-size:14px;font-weight:500}
+nav.main a{text-decoration:none}
+.head-actions{display:flex;align-items:center;gap:8px}
+.icon-btn{width:44px;height:44px;border:0;background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;border-radius:50%}
+.menu-btn{display:none}
+.mobile-nav{display:none;flex-direction:column;padding:8px 24px 20px;gap:4px;border-top:1px solid var(--line)}
+.mobile-nav a{padding:12px 0;text-decoration:none;font-weight:500}
+.mobile-nav.open{display:flex}
+
+.hero{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;padding-top:24px;padding-bottom:24px}
+.panel{position:relative;isolation:isolate;min-height:600px;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:48px}
+.panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.panel::before{content:"";position:absolute;inset:0;z-index:-1}
+.panel.dark::before{background:rgba(59,13,21,.58)}
+.panel.light::before{background:rgba(245,230,227,.80)}
+.panel h1,.panel h2{font-size:clamp(40px,5vw,60px);line-height:1.02;margin-bottom:16px}
+.panel p.lead{margin:0 0 28px;max-width:420px;font-size:17px}
+.panel .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.dark{color:#fff}.dark .eyebrow{color:#E8D9CF}.dark p.lead{color:#E8E2DC}
+.light p.lead{color:#3D332F}
+
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.trust .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;padding-top:28px;padding-bottom:28px}
+.trust-item{display:flex;gap:14px;align-items:flex-start}
+.trust-item b{display:block;font-size:15px;font-weight:600}
+.trust-item span{font-size:14px;color:var(--muted)}
+
+section.block{padding:88px 0 40px}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:32px}
+.sec-head h2{font-size:48px;line-height:1.05}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{min-height:44px;padding:0 20px;border-radius:22px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;background:transparent;color:var(--ink);border:1px solid #B8ADA4}
+.tab[aria-pressed="true"]{background:var(--red);color:#fff;border-color:var(--red)}
+.grid-items{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:28px 20px}
+.card{text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:6px}
+.card .ph{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:#F3E4E1;margin-bottom:6px}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.card:hover .ph img{transform:scale(1.03)}
+.badge{position:absolute;top:12px;left:12px;font-size:11px;letter-spacing:.08em;padding:5px 9px;border-radius:999px}
+.badge.house{background:var(--red);color:#fff}
+.badge.peer{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+.card .designer{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.card .name{font-size:15px;color:#3D332F}
+.card .access{font-size:14px;font-weight:500;color:var(--red)}
+.card .buy{font-size:13px;color:var(--muted)}
+.center{text-align:center;margin-top:44px}
+
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;padding:48px 0}
+.cat{text-decoration:none;color:var(--ink);display:flex;flex-direction:column;gap:12px}
+.cat img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:18px;background:#EFD9D5}
+.cat span{font-family:var(--serif);font-size:26px;font-weight:500}
+
+.how{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:48px}
+.how .wrap{padding-top:88px;padding-bottom:88px}
+.how h2{text-align:center;font-size:48px;margin-bottom:56px}
+.how-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:64px}
+.how-cols h3{margin:0 0 28px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.step{display:flex;gap:20px;padding:20px 0;border-top:1px solid var(--line)}
+.step .n{font-family:var(--serif);font-size:34px;line-height:1;color:var(--red);min-width:40px}
+.step b{display:block;font-size:17px;margin-bottom:4px}
+.step span{color:var(--muted);font-size:15px}
+
+#membership{padding:96px 0}
+.mem-head{text-align:center;margin-bottom:52px}
+.mem-head h2{font-size:48px;margin-bottom:12px}
+.mem-head p{margin:0 auto;max-width:560px;color:var(--muted)}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.tier{display:flex;flex-direction:column;gap:14px;padding:36px;border-radius:24px;background:#fff;border:1px solid var(--line)}
+.tier.featured{background:var(--red);color:#fff;border-color:var(--red)}
+.tier.invite{background:var(--wine);color:#fff;border-color:var(--wine)}
+.tier .tag{align-self:flex-start;font-size:11px;letter-spacing:.1em;padding:5px 10px;border-radius:999px;font-weight:600}
+.tier.featured .tag{background:#EADBD6;color:var(--ink)}
+.tier.invite .tag{border:1px solid #E8D9CF;color:#E8D9CF}
+.tier .tname{font-family:var(--serif);font-size:34px;font-weight:500}
+.tier .price{font-size:36px;font-weight:600}.tier .per{font-size:15px;opacity:.75}
+.tier .blurb{font-size:15px;opacity:.85}
+.tier ul{margin:8px 0 0;padding:0 0 0 18px;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.tier .btn{margin-top:auto}
+.fine{margin:28px 0 0;text-align:center;font-size:13px;color:var(--muted)}
+
+#earn{background:var(--wine);color:#F7F5F2}
+#earn .wrap{padding-top:96px;padding-bottom:96px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:56px;align-items:center}
+#earn .eyebrow{color:#E8D9CF}
+#earn h2{font-size:clamp(36px,4.5vw,52px);line-height:1.05;color:#fff;margin-bottom:20px}
+#earn p{margin:0 0 32px;color:#CFC6BE;max-width:480px}
+.est{background:var(--wine2);border:1px solid #7A2A38;border-radius:24px;padding:36px}
+.est .lbl{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#CFC6BE;margin-bottom:24px}
+.est label{display:block;font-size:14px;margin-bottom:8px;color:#E8E2DC}
+.est select,.est input{width:100%;height:48px;background:var(--wine);color:#fff;border:1px solid #8A3A48;border-radius:999px;padding:0 16px;font-size:15px;margin-bottom:20px;font-family:inherit}
+.est .out{border-top:1px solid #7A2A38;padding-top:24px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.est .out span{color:#CFC6BE;font-size:14px}
+.est .out strong{font-family:var(--serif);font-size:44px;color:#fff;font-weight:500}
+
+.edits{padding:96px 0}
+.edits h2{font-size:48px;margin-bottom:32px}
+.edit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.edit{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:420px;padding:28px;border-radius:18px;text-decoration:none;color:#fff}
+.edit img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.edit::before{content:"";position:absolute;inset:0;background:rgba(26,23,20,.38);z-index:-1}
+.edit:hover{color:#fff}
+.edit b{font-family:var(--serif);font-size:32px;font-weight:500}
+.edit span{font-size:15px;color:#F7F0EC}
+
+footer{background:var(--blush);border-top:1px solid var(--line)}
+.foot{display:flex;flex-wrap:wrap;gap:48px;justify-content:space-between;padding-top:64px;padding-bottom:40px}
+.foot .news{flex:1 1 320px;max-width:420px}
+.foot label{display:block;font-size:14px;margin:20px 0 10px;color:#3D332F}
+.foot form{display:flex;gap:8px}
+.foot input{flex:1;min-width:0;height:48px;border:1px solid #B8ADA4;background:#fff;border-radius:999px;padding:0 16px;font-size:15px;font-family:inherit}
+.foot-links{display:flex;flex-wrap:wrap;gap:56px;font-size:14px}
+.foot-links div{display:flex;flex-direction:column;gap:10px}
+.foot-links a{text-decoration:none}
+.legal{border-top:1px solid #E8CFCB;padding-top:20px;padding-bottom:32px;font-size:13px;color:var(--muted)}
+
+@media (max-width:900px){
+  nav.main,.head-actions .login{display:none}
+  .menu-btn{display:flex}
+}
+@media (max-width:640px){
+  .panel{min-height:480px;padding:28px}
+  .sec-head h2,.how h2,.mem-head h2,.edits h2{font-size:38px}
+  .head .btn{display:none}
+  .tier{padding:28px}
+  section.block{padding-top:64px}
+}
+</style>
+</head>
+<body>
+
+<div class="announce">Rent · Buy · Lend designer pieces &nbsp;·&nbsp; Membership optional &nbsp;·&nbsp; DFW pickup available</div>
+
+<header>
+  <div class="head">
+    <a href="#top" class="logo" aria-label="Tabadol home">
+      <svg width="180" viewBox="0 0 980 160" aria-hidden="true">
+        <path d="M12 62 V36 Q12 14 34 14 H86 Q108 14 108 36 V62" fill="none" stroke="#9B1C31" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="40" y="38" width="15" height="15" transform="rotate(45 47.5 45.5)" fill="#9B1C31"/>
+        <rect x="65" y="38" width="15" height="15" transform="rotate(45 72.5 45.5)" fill="#9B1C31"/>
+        <rect x="49" y="66" width="22" height="84" fill="#9B1C31"/>
+        <text x="128" y="150" font-family="Jost, sans-serif" font-weight="600" font-size="190" letter-spacing="14" fill="#1A1714">ABADOL</text>
+      </svg>
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="#catalog">The Collection</a>
+      <a href="#catalog" data-filter="peer">Member Closets</a>
+      <a href="#membership">Membership</a>
+      <a href="#how">How It Works</a>
+      <a href="#earn">Earn From Your Closet</a>
+    </nav>
+    <div class="head-actions">
+      <button class="icon-btn" type="button" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A1714" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      </button>
+      <a href="#login" class="login" style="font-size:14px;font-weight:500;text-decoration:none;padding:12px 8px">Log in</a>
+      <a href="#membership" class="btn btn-red" style="min-height:44px;padding:0 22px">Apply now</a>
+      <button class="icon-btn menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1714" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile">
+    <a href="#catalog">The Collection</a>
+    <a href="#catalog" data-filter="peer">Member Closets</a>
+    <a href="#membership">Membership</a>
+    <a href="#how">How It Works</a>
+    <a href="#earn">Earn From Your Closet</a>
+    <a href="#login">Log in</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="wrap hero">
+    <div class="panel dark">
+      <img src="images/01-hero-woman-bag.jpg" alt="Woman carrying a white leather handbag" style="object-position:center 30%">
+      <p class="eyebrow">Rent · Borrow · Buy</p>
+      <h1>Your next look. Yours to borrow or keep.</h1>
+      <p class="lead">Designer handbags, jewelry, clothing and accessories. Borrow from our House Collection, or rent and buy from Member Closets.</p>
+      <div class="ctas">
+        <a href="#catalog" class="btn btn-white">Explore the Collection</a>
+        <a href="#membership" class="btn btn-ghost-w">View Memberships</a>
+      </div>
+    </div>
+    <div class="panel light">
+      <img src="images/02-hero-closet-flatlay.jpg" alt="Flat-lay of heels and a black purse">
+      <p class="eyebrow">Member Closets</p>
+      <h2>Earn from your closet.</h2>
+      <p class="lead">Get approved, list the pieces you rarely wear to rent, sell, or both, and set your own prices. Get paid in cash or membership credit.</p>
+      <div class="ctas">
+        <a href="#earn" class="btn btn-red">Earn From Your Closet</a>
+        <a href="#how" class="btn btn-ghost">How lending works</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust" aria-label="Our promises">
+    <div class="wrap">
+      <div class="trust-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9B1C31" stroke-width="1.5" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg><div><b>Authenticity verified</b><span>Specialist authentication on every listing</span></div></div>
+      <div class="trust-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9B1C31" stroke-width="1.5" aria-hidden="true"><path d="M4 12a8 8 0 0114-5"/><path d="M20 12a8 8 0 01-14 5"/><path d="M18 3v4h-4"/><path d="M6 21v-4h4"/></svg><div><b>30-day borrowing</b><span>Renew House pieces when no one is waiting</span></div></div>
+      <div class="trust-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9B1C31" stroke-width="1.5" aria-hidden="true"><path d="M3 7h13v10H3z"/><path d="M16 10h3l2 3v4h-5"/><circle cx="7" cy="18" r="1.6"/><circle cx="18" cy="18" r="1.6"/></svg><div><b>Ships across the US</b><span>Tracked delivery, or pick up in DFW</span></div></div>
+      <div class="trust-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9B1C31" stroke-width="1.5" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.5-7 10-7 10z"/></svg><div><b>Fair, clear protection</b><span>Normal wear is never charged</span></div></div>
+    </div>
+  </section>
+
+  <section class="wrap block" id="catalog">
+    <div class="sec-head">
+      <div><p class="eyebrow">New this week</p><h2>Just arrived</h2></div>
+      <div class="tabs" role="group" aria-label="Filter by source">
+        <button class="tab" type="button" data-src="all" aria-pressed="true">All</button>
+        <button class="tab" type="button" data-src="house" aria-pressed="false">House Collection</button>
+        <button class="tab" type="button" data-src="peer" aria-pressed="false">Member Closets</button>
+      </div>
+    </div>
+    <div class="grid-items" id="items"></div>
+    <div class="center"><a href="#catalog" class="btn btn-ghost">View the full collection</a></div>
+  </section>
+
+  <section class="wrap cats" aria-label="Shop by category" id="cats"></section>
+
+  <section class="how" id="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <div class="how-cols">
+        <div><h3>For members</h3><div id="memberSteps"></div></div>
+        <div><h3>For lenders</h3><div id="lenderSteps"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="membership">
+    <div class="mem-head">
+      <p class="eyebrow">Membership</p>
+      <h2>Choose your membership</h2>
+      <p>Membership is optional: any verified account can rent from Member Closets or buy. Join for ongoing access to the House Collection, with 30-day borrowing you can renew.</p>
+    </div>
+    <div class="tiers" id="tiers"></div>
+    <p class="fine">Billed monthly with a three-month minimum. Pricing to be confirmed. Peer rentals are booked separately and are not part of membership allowances.</p>
+  </section>
+
+  <section id="earn">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Earn from your closet</p>
+        <h2>That bag in your closet could pay for your membership.</h2>
+        <p>No membership needed to list. Choose Rent, Buy, or Both, set your own prices, and ship with our tracked labels. Payouts land 48 hours after a return or delivery, in cash or membership credit.</p>
+        <a href="#list" class="btn btn-white">List your first item</a>
+      </div>
+      <form class="est" onsubmit="return false">
+        <div class="lbl">Estimate your earnings</div>
+        <label for="itemType">What would you list?</label>
+        <select id="itemType"><option>Designer handbag</option><option>Fine jewelry</option><option>Shoes</option><option>Occasion dress</option></select>
+        <label for="length">Typical rental length</label>
+        <select id="length"><option>3 days</option><option>7 days</option><option>14 days</option></select>
+        <label for="rentals">Rentals per month</label>
+        <input id="rentals" type="number" value="2" min="1" max="10">
+        <div class="out"><span>Estimated monthly earnings<br>after 20% rental commission</span><strong>$[EST]</strong></div>
+      </form>
+    </div>
+  </section>
+
+  <section class="wrap edits" aria-label="Edits">
+    <h2>Shop the edits</h2>
+    <div class="edit-grid" id="edits"></div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="news">
+      <svg width="170" viewBox="0 0 980 160" role="img" aria-label="Tabadol">
+        <path d="M12 62 V36 Q12 14 34 14 H86 Q108 14 108 36 V62" fill="none" stroke="#9B1C31" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="40" y="38" width="15" height="15" transform="rotate(45 47.5 45.5)" fill="#9B1C31"/>
+        <rect x="65" y="38" width="15" height="15" transform="rotate(45 72.5 45.5)" fill="#9B1C31"/>
+        <rect x="49" y="66" width="22" height="84" fill="#9B1C31"/>
+        <text x="128" y="150" font-family="Jost, sans-serif" font-weight="600" font-size="190" letter-spacing="14" fill="#1A1714">ABADOL</text>
+      </svg>
+      <label for="email">New arrivals and member edits, in your inbox.</label>
+      <form onsubmit="return false"><input id="email" type="email" placeholder="Email address"><button class="btn btn-dark" type="submit">Sign up</button></form>
+    </div>
+    <div class="foot-links">
+      <div><b>Shop</b><a href="#catalog">House Collection</a><a href="#catalog">Member Closets</a><a href="#catalog">Designers</a><a href="#gift">Gift cards</a></div>
+      <div><b>Members</b><a href="#membership">Membership</a><a href="#earn">Become a lender</a><a href="#how">How it works</a><a href="#faq">FAQ</a></div>
+      <div><b>Company</b><a href="#about">About</a><a href="#contact">Contact</a><a href="#ig">Instagram</a><a href="#tt">TikTok</a></div>
+    </div>
+  </div>
+  <div class="wrap legal">© 2026 Tabadol. Not affiliated with any designer brand shown. Authenticity guaranteed. Design preview — photos from Unsplash.</div>
+</footer>
+
+<script>
+const items = [
+  { designer: 'Chanel', name: 'Classic Flap, Medium', img: '03-black-quilted-bag', house: true, access: 'Included with Privé', buy: 'Or buy for $[PRICE]' },
+  { designer: 'Bottega Veneta', name: 'Jodie Bag', img: '04-woven-tote', house: false, access: 'Rent from $[X] · 3, 7 or 14 days', buy: 'Or buy for $[PRICE]' },
+  { designer: 'Cartier', name: 'Love Bracelet', img: '05-gold-bracelet', house: true, access: 'Included with Privé', buy: 'Borrow only' },
+  { designer: 'Prada', name: 'Re-Edition 2005', img: '06-black-sling-bag', house: true, access: 'Included from Essential', buy: 'Or buy for $[PRICE]' },
+  { designer: 'Loewe', name: 'Puzzle Bag, Small', img: '07-brown-leather-bag', house: false, access: 'Rent from $[X] · 7 or 14 days', buy: 'Rent only' },
+  { designer: 'Dior', name: 'Saddle Bag', img: '08-blue-brown-tote', house: true, access: 'Included from Signature', buy: 'Or buy for $[PRICE]' },
+  { designer: 'Van Cleef & Arpels', name: 'Alhambra Necklace', img: '09-gold-necklace', house: false, access: 'Buy for $[PRICE]', buy: 'For sale only' },
+  { designer: 'Saint Laurent', name: 'Kate Clutch', img: '10-black-leather-bag', house: true, access: 'Included from Essential', buy: 'Borrow only' }
+];
+const cats = [['Clothing','17-edit-quiet-luxury'],['Handbags','11-cat-handbags'],['Jewelry','12-cat-jewelry'],['Fine Jewelry','13-cat-fine-jewelry'],['Shoes','14-cat-shoes'],['Accessories','15-cat-accessories']];
+const memberSteps = [
+  ['Join, or just browse','Membership is optional. Any verified account can rent from Member Closets or buy.'],
+  ['Borrow from the House',"Members keep House pieces for 30 days, then renew or exchange on their tier's schedule."],
+  ['Love it? Keep it','Buy eligible pieces at the listed price whenever you like.']
+];
+const lenderSteps = [
+  ['Get approved and list','Choose Rent, Buy, or Both and set your own prices. Every piece is authenticated first.'],
+  ['Ship with our labels','Tracked labels on every order. You handle routine cleaning between rentals.'],
+  ['Get paid','48 hours after a return or delivery, take cash or membership credit.']
+];
+const tiers = [
+  { name: 'Essential', cls: '', tag: '', price: '$[PRICE]', per: ' / month', blurb: 'Your start in the House Collection.', perks: ['1 House item at a time','Core collection','1 exchange per month','30-day borrowing, renewable'], cta: 'Join Essential', btn: 'btn-dark' },
+  { name: 'Signature', cls: 'featured', tag: 'MOST POPULAR', price: '$[PRICE]', per: ' / month', blurb: 'Two pieces at once, core and premium.', perks: ['2 House items at a time','Core and premium collections','1 monthly exchange, for either or both items','30-day borrowing, renewable'], cta: 'Join Signature', btn: 'btn-white' },
+  { name: 'Privé', cls: 'invite', tag: 'INVITE ONLY', price: 'By invitation', per: '', blurb: 'Our most exclusive tier, by invitation only.', perks: ['2 House items at a time','Every eligible collection','2 exchanges per month','30-day borrowing, renewable'], cta: 'Request an invitation', btn: 'btn-white' }
+];
+const edits = [['Wedding Guest','16-edit-wedding-guest','Statement bags and jewelry for the season.'],['Quiet Luxury','17-edit-quiet-luxury','Timeless neutrals, no logos needed.'],['Night Out','18-edit-night-out','Clutches and minis made for evening.']];
+
+const esc = (s) => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const img = (f) => 'images/' + f + '.jpg';
+
+function renderItems(src) {
+  document.getElementById('items').innerHTML = items
+    .filter((i) => src === 'all' || (src === 'house' ? i.house : !i.house))
+    .map((i) => `<a href="#catalog" class="card">
+      <div class="ph"><img src="${img(i.img)}" alt="${esc(i.designer + ' ' + i.name)}" loading="lazy">
+      <span class="badge ${i.house ? 'house' : 'peer'}">${i.house ? 'HOUSE COLLECTION' : 'MEMBER CLOSET'}</span></div>
+      <span class="designer">${esc(i.designer)}</span><span class="name">${esc(i.name)}</span>
+      <span class="access">${esc(i.access)}</span><span class="buy">${esc(i.buy)}</span></a>`).join('');
+}
+function setFilter(src) {
+  document.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-pressed', String(t.dataset.src === src)));
+  renderItems(src);
+}
+document.querySelectorAll('.tab').forEach((t) => t.addEventListener('click', () => setFilter(t.dataset.src)));
+document.querySelectorAll('[data-filter]').forEach((a) => a.addEventListener('click', () => setFilter(a.dataset.filter)));
+setFilter('all');
+
+document.getElementById('cats').innerHTML = cats.map(([n, f]) => `<a href="#catalog" class="cat"><img src="${img(f)}" alt="${n}" loading="lazy"><span>${n}</span></a>`).join('');
+const steps = (arr) => arr.map(([t, b], k) => `<div class="step"><div class="n">0${k + 1}</div><div><b>${t}</b><span>${b}</span></div></div>`).join('');
+document.getElementById('memberSteps').innerHTML = steps(memberSteps);
+document.getElementById('lenderSteps').innerHTML = steps(lenderSteps);
+document.getElementById('tiers').innerHTML = tiers.map((t) => `<div class="tier ${t.cls}">
+  ${t.tag ? `<span class="tag">${t.tag}</span>` : ''}
+  <div class="tname">${t.name}</div>
+  <div><span class="price">${esc(t.price)}</span><span class="per">${t.per}</span></div>
+  <div class="blurb">${t.blurb}</div>
+  <ul>${t.perks.map((p) => `<li>${p}</li>`).join('')}</ul>
+  <a href="#apply" class="btn ${t.btn}">${t.cta}</a></div>`).join('');
+document.getElementById('edits').innerHTML = edits.map(([n, f, b]) => `<a href="#catalog" class="edit"><img src="${img(f)}" alt="${n}" loading="lazy"><b>${n}</b><span>${b}</span></a>`).join('');
+
+const menuBtn = document.querySelector('.menu-btn');
+const mobileNav = document.getElementById('mobileNav');
+menuBtn.addEventListener('click', () => {
+  const open = mobileNav.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', String(open));
+});
+mobileNav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => { mobileNav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }));
+</script>
+</body>
+</html>
